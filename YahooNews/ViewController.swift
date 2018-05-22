@@ -55,12 +55,18 @@ class ViewController: UIViewController, UITableViewDataSource {
     
     @IBOutlet weak var tableView: UITableView!
     var newsItem = [NewsItem]()
+    @IBOutlet weak var dateLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        
+        let formatter = DateFormatter()
+        formatter.timeZone = .none
+        formatter.dateStyle = .medium
+        dateLabel.text = formatter.string(from: Date())
     
         let world = NewsItem.init(category: Categories.World, headline: "Climate change protests, divestments meet fossil fuels realities")
         let americas = NewsItem.init(category: Categories.Americas, headline: "Officials: FBI is tracking 100 Americans who fought alongside IS in Syria")

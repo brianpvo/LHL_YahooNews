@@ -21,9 +21,33 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Iw-NI-f3x">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="Aqe-Z7-i9a">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg-header" translatesAutoresizingMaskIntoConstraints="NO" id="YnR-1z-LId">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
+                                        </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ATg-Ze-Qr8">
+                                            <rect key="frame" x="8" y="8" width="36" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="YnR-1z-LId" firstAttribute="height" secondItem="Aqe-Z7-i9a" secondAttribute="height" id="57x-QG-CxV"/>
+                                        <constraint firstItem="ATg-Ze-Qr8" firstAttribute="top" secondItem="Aqe-Z7-i9a" secondAttribute="top" constant="8" id="8Us-aE-OTm"/>
+                                        <constraint firstItem="YnR-1z-LId" firstAttribute="width" secondItem="Aqe-Z7-i9a" secondAttribute="width" id="9Jq-uZ-4Ta"/>
+                                        <constraint firstItem="ATg-Ze-Qr8" firstAttribute="leading" secondItem="Aqe-Z7-i9a" secondAttribute="leading" constant="8" id="bYx-cz-Otx"/>
+                                        <constraint firstAttribute="bottom" secondItem="YnR-1z-LId" secondAttribute="bottom" id="pgB-sY-SIz"/>
+                                        <constraint firstItem="YnR-1z-LId" firstAttribute="leading" secondItem="Aqe-Z7-i9a" secondAttribute="leading" id="rFF-70-1gX"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="yahooCell" rowHeight="75" id="ese-CA-wJA" customClass="YahooTableViewCell" customModule="YahooNews" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="75"/>
+                                        <rect key="frame" x="0.0" y="328" width="375" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ese-CA-wJA" id="WPT-Xb-KIv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="74.5"/>
@@ -75,6 +99,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dateLabel" destination="ATg-Ze-Qr8" id="DSk-N6-Ol7"/>
                         <outlet property="tableView" destination="6Iw-NI-f3x" id="bkd-Yx-jjX"/>
                     </connections>
                 </viewController>
@@ -83,4 +108,7 @@
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg-header" width="1242" height="825"/>
+    </resources>
 </document>
