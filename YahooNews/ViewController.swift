@@ -8,60 +8,22 @@
 
 import UIKit
 
-struct NewsItem {
-    var category: Categories
-    var headline: String
-}
-
-enum Categories {
-    case World, Americas, Europe, MiddleEast, Africa, Asia
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
     
-    func string() -> String {
-        switch self {
-        case .World:
-            return "World"
-        case .Americas:
-            return "Americas"
-        case .Europe:
-            return "Europe"
-        case .MiddleEast:
-            return "Middle East"
-        case .Africa:
-            return "Africa"
-        case .Asia:
-            return "Asia"
-        }
-    }
-    
-    func color() -> UIColor {
-        switch self {
-        case .World:
-            return UIColor.red
-        case .Americas:
-            return UIColor.blue
-        case .Europe:
-            return UIColor.green
-        case .Africa:
-            return UIColor.orange
-        case .Asia:
-            return UIColor.purple
-        case .MiddleEast:
-            return UIColor.yellow
-        }
-    }
-}
-
-class ViewController: UIViewController, UITableViewDataSource {
-    
+    @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    var newsItem = [NewsItem]()
     @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var imageView: UIImageView!
+    var newsItem = [NewsItem]()
+    private let kTableHeaderHeight: CGFloat = 300.0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.setNavigationBarHidden(true, animated: true)
-        tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
+        
+//        tableView.contentInset = UIEdgeInsets(top: kTableHeaderHeight, left: 0, bottom: 0, right: 0)
+        tableView.contentOffset = CGPoint(x: 0, y: -kTableHeaderHeight)
+        updateHeaderView()
         
         let formatter = DateFormatter()
         formatter.timeZone = .none
@@ -80,6 +42,27 @@ class ViewController: UIViewController, UITableViewDataSource {
         newsItem += [world, europe, middleEast, africa, asia, americas, world2, europe2]
     }
     
+    func updateHeaderView() {
+        var transform = CGAffineTransform(translationX: 0, y: 0)
+        dateLabel.transform = transform
+        if tableView.contentOffset.y < 0 {
+            
+            transform = CGAffineTransform(translationX: 0, y: tableView.contentOffset.y/3.0)
+            
+            let scale = 1 + -(tableView.contentOffset.y/kTableHeaderHeight)
+            transform = transform.concatenating(CGAffineTransform(scaleX: scale, y: scale))
+            
+//            transform = transform.concatenating(CGAffineTransform(rotationAngle: CGFloat.pi*tableView.contentOffset.y/100.0))
+        }
+        
+        let imageView = headerView.subviews[0]
+        imageView.transform = transform
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        updateHeaderView()
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return newsItem.count
     }
@@ -92,8 +75,17 @@ class ViewController: UIViewController, UITableViewDataSource {
         return cell
     }
     
+    
     override var prefersStatusBarHidden: Bool {
         return true
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableViewAutomaticDimension
     }
 
 }

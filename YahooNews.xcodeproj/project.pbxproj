@@ -13,6 +13,7 @@
 		7A986E3820B48EBA00103CE4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A986E3720B48EBA00103CE4 /* Assets.xcassets */; };
 		7A986E3B20B48EBA00103CE4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A986E3920B48EBA00103CE4 /* LaunchScreen.storyboard */; };
 		7A986E4320B4948900103CE4 /* YahooTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E4220B4948900103CE4 /* YahooTableViewCell.swift */; };
+		7A986E4520B4B10100103CE4 /* NewsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A986E4420B4B10100103CE4 /* NewsItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		7A986E3A20B48EBA00103CE4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7A986E3C20B48EBA00103CE4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7A986E4220B4948900103CE4 /* YahooTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YahooTableViewCell.swift; sourceTree = "<group>"; };
+		7A986E4420B4B10100103CE4 /* NewsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +61,7 @@
 				7A986E3020B48EB800103CE4 /* AppDelegate.swift */,
 				7A986E3220B48EB800103CE4 /* ViewController.swift */,
 				7A986E4220B4948900103CE4 /* YahooTableViewCell.swift */,
+				7A986E4420B4B10100103CE4 /* NewsItem.swift */,
 				7A986E3420B48EB800103CE4 /* Main.storyboard */,
 				7A986E3720B48EBA00103CE4 /* Assets.xcassets */,
 				7A986E3920B48EBA00103CE4 /* LaunchScreen.storyboard */,
@@ -139,6 +142,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A986E4320B4948900103CE4 /* YahooTableViewCell.swift in Sources */,
+				7A986E4520B4B10100103CE4 /* NewsItem.swift in Sources */,
 				7A986E3320B48EB800103CE4 /* ViewController.swift in Sources */,
 				7A986E3120B48EB800103CE4 /* AppDelegate.swift in Sources */,
 			);
